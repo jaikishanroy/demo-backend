@@ -49,12 +49,12 @@ jobs:
 
       - name: Build Docker image for demo-backend
         run: |
-          docker build -t jaikishanroy/demo-backend .
-          docker tag demo-backend jaikishanroy/demo-backend:latest
+          docker build -t demo-backend .
+          docker push tag demo jaikishanroy/demo-backend:latest
 
       # Step 7: Push the Docker image to Docker Hub (or any other registry)
-      - name: Push Docker image to Docker Hub
-        run: docker push jaikishanroy/demo-backend:latest
+#      - name: Push Docker image to Docker Hub
+#        run: docker push jaikishanroy/demo-backend:latest
 
       # Step 8: Deploy to AWS Elastic Beanstalk or other target platform
       - name: Deploy to AWS Elastic Beanstalk
