@@ -42,20 +42,20 @@ jobs:
       - name: Run tests
         run: mvn test
 
-      # Step 6: Build the Docker image for demo-backend
 
+
+      # Step 6: Log in to Docker Hub
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
+      # Step 7: Build and tag the Docker image
       - name: Build Docker image for demo-backend
         run: |
-          docker build -t demo-backend .
-          docker push tag demo jaikishanroy/demo-backend:latest
+          docker build -t jaikishanroy/demo-backend:latest .
 
-      # Step 7: Push the Docker image to Docker Hub (or any other registry)
-#      - name: Push Docker image to Docker Hub
-#        run: docker push jaikishanroy/demo-backend:latest
-
+      # Step 8: Push the Docker image to Docker Hub
+      - name: Push Docker image to Docker Hub
+        run: docker push jaikishanroy/demo-backend:lates
       # Step 8: Deploy to AWS Elastic Beanstalk or other target platform
       - name: Deploy to AWS Elastic Beanstalk
         run: |
