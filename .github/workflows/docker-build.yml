@@ -55,7 +55,7 @@ jobs:
 
       # Step 8: Push the Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
-        run: docker push jaikishanroy/demo-backend:lates
+        run: docker push jaikishanroy/demo-backend:latest
       # Step 8: Deploy to AWS Elastic Beanstalk or other target platform
       - name: Deploy to AWS Elastic Beanstalk
         run: |
